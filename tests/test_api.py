@@ -1,7 +1,7 @@
 import json
 import os
 import unittest
-from unittest.mock import Mock, patch
+from unittest.mock import patch
 
 from ckanapi.errors import CKANAPIError
 from fastapi.testclient import TestClient

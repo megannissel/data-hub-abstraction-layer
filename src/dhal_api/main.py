@@ -11,7 +11,7 @@ from fastapi.responses import JSONResponse
 
 from dhal_api import utils
 from dhal_api.models import (
-    DataType, LicenseInfo, SearchParams, DatasetSearchResult, SearchResponse
+    LicenseInfo, SearchParams, DatasetSearchResult, SearchResponse
 )
 
 
@@ -105,7 +105,7 @@ def search_dataset(filter_query: Annotated[SearchParams, Query()]) -> SearchResp
                 'fq_list': fq_list,
                 'start': offset,
                 'extras': extras,
-                'sort': 'score desc' # Most relevant results first
+                'sort': 'score desc'  # Most relevant results first
             }
 
             try:
@@ -165,7 +165,7 @@ def search_dataset(filter_query: Annotated[SearchParams, Query()]) -> SearchResp
                     places=[tag['name'] for tag in dataset['tags']
                             if tag['vocabulary_id'] == PLACE_VOCAB_ID],
                     collection=[tag['name'] for tag in dataset['tags']
-                            if tag['vocabulary_id'] == COLLECTION_VOCAB_ID],
+                                if tag['vocabulary_id'] == COLLECTION_VOCAB_ID],
                     license=LicenseInfo(
                         id=dataset.get('license_id'),
                         title=dataset.get('license_title'),
