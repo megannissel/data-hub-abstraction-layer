@@ -91,6 +91,8 @@ class APITests(unittest.TestCase):
 
         self.assertEqual(resp.status_code, 200)
         data = resp.json()
+        # Only one dataset should be returned; the one with ambiguous Resources
+        # should be filtered out
         self.assertEqual(data['count'], 1)
 
         with open(f'{DATA_DIR}/formatted_payload_multiple_resource_match.json') as test_resp:
@@ -105,7 +107,7 @@ class APITests(unittest.TestCase):
         resp = client.get("/search_dataset/", params=params)
 
         self.assertEqual(resp.status_code, 422)
-        assert 'datatype' in resp.json()['detail'][0]['loc']
+        self.assertIn('datatype', resp.json()['detail'][0]['loc'])
 
     def test_search_dataset_bad_query_invalid_extent(self):
         """Test API handles bad query parameters: extent list len < 4."""
@@ -117,7 +119,7 @@ class APITests(unittest.TestCase):
         resp = client.get("/search_dataset/", params=params)
 
         self.assertEqual(resp.status_code, 422)
-        assert 'extent' in resp.json()['detail'][0]['loc']
+        self.assertIn('extent', resp.json()['detail'][0]['loc'])
 
     def test_search_dataset_bad_query_infinity_extent(self):
         """Test API handles bad query parameters: extent includes infinity."""
@@ -129,7 +131,7 @@ class APITests(unittest.TestCase):
         resp = client.get("/search_dataset/", params=params)
 
         self.assertEqual(resp.status_code, 422)
-        assert 'extent' in resp.json()['detail'][0]['loc']
+        self.assertIn('extent', resp.json()['detail'][0]['loc'])
 
     def test_handle_ckan_payload_missing_count_results(self):
         """Handle case where CKAN payload lacks `count` or `results`."""
