@@ -92,6 +92,10 @@ def search_dataset(filter_query: Annotated[SearchParams, Query()]) -> SearchResp
 
     datasets = []
     with RemoteCKAN(CKAN_API_URL, session=session) as catalog:
+        # By default, CKAN only returns 10 results per query. To fetch additional
+        # results, we need to make additional queries with `start` set to the offset
+        # in the complete result for where the set of returned datasets should begin.
+        # See: https://docs.ckan.org/en/2.9/api/#ckan.logic.action.get.package_search
         offset = 0
         count = None
 
@@ -114,18 +118,18 @@ def search_dataset(filter_query: Annotated[SearchParams, Query()]) -> SearchResp
 
             if 'count' not in result or 'results' not in result:
                 # This shouldn't happen, but check just in case!
-                LOGGER.error(f"CKAN returned unexpected payload: {result}")
+                error_msg = f"CKAN returned unexpected payload: {result}"
+                LOGGER.error(error_msg)
                 raise CKANException(status_code=404,
-                                    message="An error occurred in the CKAN search.")
+                                    message=error_msg)
 
             if not count:
                 count = result.get('count', 0)
 
             for dataset in result.get('results', []):
+                LOGGER.info(dataset['title'])
                 bbox = None
-                index = 0
-                while index < len(dataset.get('extras', [])):
-                    extra = dataset['extras'][index]
+                for extra in dataset.get('extras', []):
                     if extra['key'] == 'spatial':
                         spatial = extra['value']
                         spatial_dict = json.loads(spatial)
@@ -133,13 +137,10 @@ def search_dataset(filter_query: Annotated[SearchParams, Query()]) -> SearchResp
                         bbox = [coords[0][0][0], coords[0][1][1],
                                 coords[0][2][0], coords[0][0][1]]
                         break
-                    index += 1
 
                 dataset_url = None
                 possible_dataset_urls_count = 0
-                index = 0
-                while index < len(dataset.get('resources', [])):
-                    res = dataset['resources'][index]
+                for res in dataset.get('resources', []):
                     if utils.resource_type_matches(res['url'], filter_query.datatype):
                         dataset_url = res['url']
                         possible_dataset_urls_count += 1
@@ -147,7 +148,6 @@ def search_dataset(filter_query: Annotated[SearchParams, Query()]) -> SearchResp
                             # If the resource is ambiguous, skip
                             dataset_url = None
                             break
-                    index += 1
 
                 if not dataset_url:
                     # If no matching resource can be determined, skip

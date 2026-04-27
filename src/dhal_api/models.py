@@ -1,5 +1,4 @@
 from enum import Enum
-from typing import Optional
 
 from pydantic import BaseModel, Field, field_validator
 
@@ -24,7 +23,7 @@ class SearchParams(BaseModel):
     """List of keywords from a shared vocabulary between InVEST and the Data Hub."""
     datatype: DataType
     """The file format. One of: raster, vector, or table."""
-    extent: Optional[list[float]] = None
+    extent: list[float] | None = None
     """A 4-element iterable of [minx, miny, maxx, maxy] in EPSG:4326.
     Extent must not include inf or -inf.
     """
@@ -33,28 +32,29 @@ class SearchParams(BaseModel):
 
     @field_validator('extent')
     def validate_extent_length(cls, v):
-        assert len(v) == 4, 'extent must be a list of length 4'
+        if len(v) != 4:
+            raise ValueError('extent must be a list of length 4')
         return v
 
     @field_validator('extent')
     def validate_extent_infinity(cls, v):
         # CKAN spatial search 404s on infinity, after a long wait.
-        assert float('inf') not in v and -float('inf') not in v, (
-                'extent cannot include infinity')
+        if float('inf') in v or -float('inf') in v:
+            raise ValueError('extent cannot include infinity')
         return v
 
 
 class DatasetSearchResult(BaseModel):
     """Class containing details of a Data Hub dataset."""
     dataset_url: str
-    """The URL of the dataset, to be used as an InVEST input."""
+    """The URL of the dataset."""
     source_catalog_url: str
     """The URL to the Package containing the dataset on the Hub."""
     name: str
     """The dataset name."""
     description: str
     """The dataset description."""
-    extent: Optional[list[float]] = None
+    extent: list[float] | None = None
     """A 4-element iterable of [minx, miny, maxx, maxy] in EPSG:4326"""
     tags: list[str]
     """All non-vocabulary tags associated with the dataset."""
