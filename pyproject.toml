@@ -1,7 +1,7 @@
 [project]
 name = "dhal_api"
 description = "NatCap Data Hub Abstraction Layer API"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 license = "Apache-2.0"
 license-files = ["LICENSE.txt"]
 maintainers = [
@@ -16,12 +16,13 @@ dynamic = ["version", "dependencies", "optional-dependencies"]
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
 
+[tool.setuptools_scm]
+version_scheme = "post-release"
+local_scheme = "node-and-date"
+
 [build-system]
 requires = ['setuptools>=64', 'wheel', 'setuptools_scm>=8.0']
 build-backend = "setuptools.build_meta"
-
-[tool.setuptools_scm]
-root = ".."
 
 [tool.setuptools.packages.find]
 where = ["src"]

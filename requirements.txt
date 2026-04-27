@@ -1,4 +1,4 @@
 ckanapi
 pydantic
 requests
-fastapi
+fastapi[standard]
