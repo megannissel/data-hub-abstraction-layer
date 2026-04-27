@@ -1,0 +1,59 @@
+{
+    "count": 2,
+    "datasets": [
+        {
+            "dataset_url": "https://data.naturalcapitalalliance.stanford.edu/dataset/watersheds_gura.gpkg",
+            "source_catalog_url": "https://data.naturalcapitalalliance.stanford.edu/dataset/sts-dafff9535f9b2b329ec61e85a481a16776304708af291ddc5792f8d695278264",
+            "name": "Subwatersheds from DelineateIt for Testing",
+            "description": "A vector defining the areas that are upstream from the snapped outlet points, where upstream area is defined by the D8 flow algorithm implementation in PyGeoprocessing.",
+            "extent": [
+                36.744343840599385,
+                -0.60712559476077,
+                36.97163097658486,
+                -0.5359785856603112
+            ],
+            "tags": [
+                "DELINEATEIT",
+                "INVEST",
+                "WATERSHEDS"
+            ],
+            "places": [],
+            "collection": [],
+            "license": {
+                "id": "CC-BY-4.0",
+                "title": "Creative Commons Attribution 4.0",
+                "url": "https://creativecommons.org/licenses/by/4.0/"
+            },
+            "author": "The Natural Capital Project, Stanford University",
+            "created": "2026-04-24T20:12:43.322088",
+            "last_updated": "2026-04-24T20:17:02.885906"
+        },
+        {
+            "dataset_url": "https://data.naturalcapitalalliance.stanford.edu/dataset/aggregated_results_swy_gura.shp",
+            "source_catalog_url": "https://data.naturalcapitalalliance.stanford.edu/dataset/sts-c874158d1857b2289f701861941d37a48b156c437b84867248b862a62681e692",
+            "name": "SWY Watersheds for Testing",
+            "description": "Table of biophysical values for each watershed",
+            "extent": [
+                36.744613360150325,
+                -0.6068670102422887,
+                37.00544990906099,
+                -0.5255371965319794
+            ],
+            "tags": [
+                "INVEST",
+                "SEASONAL WATER YIELD",
+                "WATERSHEDS"
+            ],
+            "places": [],
+            "collection": [],
+            "license": {
+                "id": "CC-BY-4.0",
+                "title": "Creative Commons Attribution 4.0",
+                "url": "https://creativecommons.org/licenses/by/4.0/"
+            },
+            "author": "The Natural Capital Project, Stanford University",
+            "created": "2026-04-24T20:29:55.335003",
+            "last_updated": "2026-04-24T20:29:56.005198"
+        }
+    ]
+}

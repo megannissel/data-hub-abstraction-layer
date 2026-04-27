@@ -1,0 +1,286 @@
+{
+    "count": 2,
+    "facets": {},
+    "results": [
+        {
+            "author": "The Natural Capital Project, Stanford University",
+            "author_email": "datahub@naturalcapitalproject.org",
+            "collection": [],
+            "creator_user_id": "7a4d74f2-b39a-4c5b-ab4a-41bbcabfd470",
+            "id": "41c970f4-20ba-4263-8573-a66bba42202e",
+            "isopen": true,
+            "license_id": "CC-BY-4.0",
+            "license_title": "Creative Commons Attribution 4.0",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "metadata_created": "2026-04-24T20:12:43.322088",
+            "metadata_modified": "2026-04-24T20:17:02.885906",
+            "name": "sts-dafff9535f9b2b329ec61e85a481a16776304708af291ddc5792f8d695278264",
+            "notes": "A vector defining the areas that are upstream from the snapped outlet points, where upstream area is defined by the D8 flow algorithm implementation in PyGeoprocessing.",
+            "num_resources": 2,
+            "num_tags": 3,
+            "organization": {
+                "id": "db21312f-31cd-4be0-b04a-451b45b6facc",
+                "name": "natcap",
+                "title": "natcap",
+                "type": "organization",
+                "description": "",
+                "image_url": "",
+                "created": "2025-05-15T15:27:25.720453",
+                "is_organization": true,
+                "approval_status": "approved",
+                "state": "active"
+            },
+            "owner_org": "db21312f-31cd-4be0-b04a-451b45b6facc",
+            "place": [],
+            "private": false,
+            "state": "active",
+            "suggested_citation": "",
+            "title": "Subwatersheds from DelineateIt for Testing",
+            "type": "dataset",
+            "version": "",
+            "extras": [
+                {
+                    "key": "center_lat_lon",
+                    "value": "[-0.5658684233756568, 36.83720533394234]"
+                },
+                {
+                    "key": "sources",
+                    "value": "[\"/watersheds_gura.gpkg\"]"
+                },
+                {
+                    "key": "sources_res_formats",
+                    "value": "[\"gpkg\", \"yml\"]"
+                },
+                {
+                    "key": "spatial",
+                    "value": "{\"type\": \"Polygon\", \"coordinates\": [[[36.744343840599385, -0.5359785856603112], [36.744343840599385, -0.60712559476077], [36.97163097658486, -0.60712559476077], [36.97163097658486, -0.5359785856603112], [36.744343840599385, -0.5359785856603112]]]}"
+                }
+            ],
+            "resources": [
+                {
+                    "cache_last_updated": "2026-04-24T16:17:02.384338",
+                    "cache_url": null,
+                    "created": "2026-04-24T16:17:02.384338",
+                    "datastore_active": false,
+                    "description": "Geometamaker YML",
+                    "format": "YML",
+                    "hash": "sha256:ca44ea57f7e1a6ffcefcd4db4b6ea6e7b514ca31ef4a9ed6ed1878faef84f723",
+                    "id": "0dc164cd-1833-4cd1-ae32-e108266f6ed3",
+                    "last_modified": "2026-04-24T20:17:02.619656",
+                    "metadata_modified": "2026-04-24T20:17:02.887919",
+                    "mimetype": null,
+                    "mimetype_inner": null,
+                    "name": "watersheds_gura.gpkg.yml",
+                    "package_id": "41c970f4-20ba-4263-8573-a66bba42202e",
+                    "position": 0,
+                    "resource_type": null,
+                    "size": 2113,
+                    "state": "active",
+                    "tracking_summary": {
+                        "total": 0,
+                        "recent": 0
+                    },
+                    "url": "https://data.naturalcapitalalliance.stanford.edu/dataset/41c970f4-20ba-4263-8573-a66bba42202e/resource/0dc164cd-1833-4cd1-ae32-e108266f6ed3/download/watersheds_gura.gpkg.yml",
+                    "url_type": "upload"
+                },
+                {
+                    "cache_last_updated": "2026-04-24T16:17:02.384886",
+                    "cache_url": null,
+                    "created": "2026-04-24T16:17:02.384885",
+                    "datastore_active": false,
+                    "description": "A vector defining the areas that are upstream from the snapped outlet points, where upstream area is defined by the D8 flow algorithm implementation in PyGeoprocessing.",
+                    "format": ".gpkg",
+                    "hash": "",
+                    "id": "12bd28ca-9e59-40d6-8e5b-87e30b2b79db",
+                    "last_modified": null,
+                    "metadata_modified": "2026-04-24T20:17:02.888032",
+                    "mimetype": "application/geopackage+sqlite3",
+                    "mimetype_inner": null,
+                    "name": "watersheds_gura.gpkg",
+                    "package_id": "41c970f4-20ba-4263-8573-a66bba42202e",
+                    "position": 1,
+                    "resource_type": null,
+                    "size": null,
+                    "state": "active",
+                    "tracking_summary": {
+                        "total": 0,
+                        "recent": 0
+                    },
+                    "url": "https://data.naturalcapitalalliance.stanford.edu/dataset/watersheds_gura.gpkg",
+                    "url_type": null
+                }
+            ],
+            "tags": [
+                {
+                    "display_name": "DELINEATEIT",
+                    "id": "e5dd2106-b97f-4e16-8420-f5f41570c7b7",
+                    "name": "DELINEATEIT",
+                    "state": "active",
+                    "vocabulary_id": null
+                },
+                {
+                    "display_name": "INVEST",
+                    "id": "2d01b3c1-9fa8-4057-990b-9ca854104dd7",
+                    "name": "INVEST",
+                    "state": "active",
+                    "vocabulary_id": null
+                },
+                {
+                    "display_name": "WATERSHEDS",
+                    "id": "73fc5f83-66bf-4363-bc68-4514403f6396",
+                    "name": "WATERSHEDS",
+                    "state": "active",
+                    "vocabulary_id": null
+                }
+            ],
+            "groups": [],
+            "relationships_as_subject": [],
+            "relationships_as_object": [],
+            "tracking_summary": {
+                "total": 0,
+                "recent": 0
+            }
+        },
+        {
+            "author": "The Natural Capital Project, Stanford University",
+            "author_email": "datahub@naturalcapitalproject.org",
+            "collection": [],
+            "creator_user_id": "7a4d74f2-b39a-4c5b-ab4a-41bbcabfd470",
+            "id": "8693d274-e70a-402f-a5f0-9d0b3b4871e7",
+            "isopen": true,
+            "license_id": "CC-BY-4.0",
+            "license_title": "Creative Commons Attribution 4.0",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "metadata_created": "2026-04-24T20:29:55.335003",
+            "metadata_modified": "2026-04-24T20:29:56.005198",
+            "name": "sts-c874158d1857b2289f701861941d37a48b156c437b84867248b862a62681e692",
+            "notes": "Table of biophysical values for each watershed",
+            "num_resources": 2,
+            "num_tags": 3,
+            "organization": {
+                "id": "db21312f-31cd-4be0-b04a-451b45b6facc",
+                "name": "natcap",
+                "title": "natcap",
+                "type": "organization",
+                "description": "",
+                "image_url": "",
+                "created": "2025-05-15T15:27:25.720453",
+                "is_organization": true,
+                "approval_status": "approved",
+                "state": "active"
+            },
+            "owner_org": "db21312f-31cd-4be0-b04a-451b45b6facc",
+            "place": [],
+            "private": false,
+            "state": "active",
+            "suggested_citation": "",
+            "title": "SWY Watersheds for Testing",
+            "type": "dataset",
+            "version": "",
+            "extras": [
+                {
+                    "key": "center_lat_lon",
+                    "value": "[-0.5645034753354095, 36.88701122767153]"
+                },
+                {
+                    "key": "sources",
+                    "value": "[\"/aggregated_results_swy_gura.shp\", \"/aggregated_results_swy_gura.shx\", \"/aggregated_results_swy_gura.dbf\", \"/aggregated_results_swy_gura.prj\"]"
+                },
+                {
+                    "key": "sources_res_formats",
+                    "value": "[\"shp\", \"yml\"]"
+                },
+                {
+                    "key": "spatial",
+                    "value": "{\"type\": \"Polygon\", \"coordinates\": [[[36.744613360150325, -0.5255371965319794], [36.744613360150325, -0.6068670102422887], [37.00544990906099, -0.6068670102422887], [37.00544990906099, -0.5255371965319794], [36.744613360150325, -0.5255371965319794]]]}"
+                }
+            ],
+            "resources": [
+                {
+                    "cache_last_updated": "2026-04-24T16:29:55.282241",
+                    "cache_url": null,
+                    "created": "2026-04-24T16:29:55.282241",
+                    "datastore_active": false,
+                    "description": "Geometamaker YML",
+                    "format": "YML",
+                    "hash": "sha256:90dda8cbd7a0761939717473f0514484c4d45700bef92b6a3e6834e5b15b3288",
+                    "id": "ac72d382-226f-4129-b9cf-80e9b57127b2",
+                    "last_modified": "2026-04-24T20:29:55.897260",
+                    "metadata_modified": "2026-04-24T20:29:56.007208",
+                    "mimetype": null,
+                    "mimetype_inner": null,
+                    "name": "aggregated_results_swy_gura.shp.yml",
+                    "package_id": "8693d274-e70a-402f-a5f0-9d0b3b4871e7",
+                    "position": 0,
+                    "resource_type": null,
+                    "size": 3800,
+                    "state": "active",
+                    "tracking_summary": {
+                        "total": 0,
+                        "recent": 0
+                    },
+                    "url": "https://data.naturalcapitalalliance.stanford.edu/dataset/8693d274-e70a-402f-a5f0-9d0b3b4871e7/resource/ac72d382-226f-4129-b9cf-80e9b57127b2/download/aggregated_results_swy_gura.shp.yml",
+                    "url_type": "upload"
+                },
+                {
+                    "cache_last_updated": "2026-04-24T16:29:55.282474",
+                    "cache_url": null,
+                    "created": "2026-04-24T16:29:55.282473",
+                    "datastore_active": false,
+                    "description": "Table of biophysical values for each watershed",
+                    "format": ".shp",
+                    "hash": "",
+                    "id": "36656b0d-d45d-4c1e-bb6c-e26e2f9723b9",
+                    "last_modified": null,
+                    "metadata_modified": "2026-04-24T20:29:56.007322",
+                    "mimetype": "application/octet-stream",
+                    "mimetype_inner": null,
+                    "name": "aggregated_results_swy_gura.shp",
+                    "package_id": "8693d274-e70a-402f-a5f0-9d0b3b4871e7",
+                    "position": 1,
+                    "resource_type": null,
+                    "size": null,
+                    "state": "active",
+                    "tracking_summary": {
+                        "total": 0,
+                        "recent": 0
+                    },
+                    "url": "https://data.naturalcapitalalliance.stanford.edu/dataset/aggregated_results_swy_gura.shp",
+                    "url_type": null
+                }
+            ],
+            "tags": [
+                {
+                    "display_name": "INVEST",
+                    "id": "2d01b3c1-9fa8-4057-990b-9ca854104dd7",
+                    "name": "INVEST",
+                    "state": "active",
+                    "vocabulary_id": null
+                },
+                {
+                    "display_name": "SEASONAL WATER YIELD",
+                    "id": "99d7f2ca-6a8a-4b88-893a-9657e88255bf",
+                    "name": "SEASONAL WATER YIELD",
+                    "state": "active",
+                    "vocabulary_id": null
+                },
+                {
+                    "display_name": "WATERSHEDS",
+                    "id": "73fc5f83-66bf-4363-bc68-4514403f6396",
+                    "name": "WATERSHEDS",
+                    "state": "active",
+                    "vocabulary_id": null
+                }
+            ],
+            "groups": [],
+            "relationships_as_subject": [],
+            "relationships_as_object": [],
+            "tracking_summary": {
+                "total": 0,
+                "recent": 0
+            }
+        }
+    ],
+    "sort": "score desc",
+    "search_facets": {}
+}

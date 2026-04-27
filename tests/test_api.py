@@ -40,6 +40,27 @@ class APITests(unittest.TestCase):
             expected_data = json.load(test_resp)
             self.assertEqual(data, expected_data)
 
+    def test_search_dataset_multiple_valid_filetypes(self):
+        """Test returning Resources of multiple valid file types."""
+        with open(f'{DATA_DIR}/ckan_response_vector_formats.json') as f:
+            success_resp = json.load(f)
+        with patch('dhal_api.main.RemoteCKAN.call_action') as mock_ckan:
+            mock_ckan.return_value = success_resp
+
+            params = {
+                "tags": ["WATERSHEDS"],
+                "datatype": "vector"
+            }
+            resp = client.get("/search_dataset/", params=params)
+
+        self.assertEqual(resp.status_code, 200)
+        data = resp.json()
+        self.assertEqual(data['count'], 2)
+
+        with open(f'{DATA_DIR}/formatted_payload_vector_formats.json') as test_resp:
+            expected_data = json.load(test_resp)
+            self.assertEqual(data, expected_data)
+
     def test_search_dataset_no_results(self):
         """Test response when no matching datasets found."""
         with patch('dhal_api.main.RemoteCKAN.call_action') as mock_ckan:
