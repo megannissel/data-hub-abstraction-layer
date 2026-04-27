@@ -10,7 +10,7 @@ Required dependencies are listed in `requirements.txt`. If you want to run tests
 
 ## Running the Development API
 
-From within `/fastapi-demo/src/dhal_api/`, run `fastapi dev`. By default, FastAPI uses port `:8000`. The automated docs (which include an interface for testing endpoints) will be available at http://127.0.0.1:8000/docs
+From within `/src/dhal_api/`, run `fastapi dev`. By default, FastAPI uses port `:8000`. The automated docs (which include an interface for testing endpoints) will be available at http://127.0.0.1:8000/docs
 
 ### Developing against different versions of the Data Hub
 
