@@ -1,0 +1,63 @@
+name: Test DHAL API
+
+on: [push, pull_request]
+
+concurrency:
+  # make sure only one run of this workflow for a given PR or a given branch
+  # can happen at one time. previous queued or started runs will be cancelled.
+  # github.workflow is the workflow name
+  # github.ref is the ref that triggered the workflow run
+  # on push, this is refs/heads/<branch name>
+  # on pull request, this is refs/pull/<pull request number>/merge
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash -l {0}
+
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+    name: Test (py${{ matrix.python-version }})
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13", "3.14"]
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch complete history for accurate versioning
+
+      - name: Set up conda environment
+        uses: mamba-org/setup-micromamba@v2
+        with:
+          # Grab requirements from pip-compatible requirements.txt
+          environment-file: requirements.txt
+          condarc: |
+              channels:
+                - conda-forge
+          create-args: >-
+              python=${{ matrix.python-version }}
+              setuptools
+              python-build
+              flake8
+              pytest
+              httpx
+          environment-name: pyenv
+
+      - name: Lint with flake8
+        run: |
+          # stop the build if there are Python syntax errors or undefined names
+          python -m flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+          python -m flake8 . --count --ignore=C901 --exit-zero \
+            --max-complexity=10 --max-line-length=127 --statistics
+
+      - name: Install
+        run: |
+            python -m pip install .
+
+      - name: Test with pytest
+        run: python -m pytest tests
