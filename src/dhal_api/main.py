@@ -82,8 +82,7 @@ def search_dataset(filter_query: Annotated[SearchParams, Query()]) -> SearchResp
 
     # Skip collections for now:
     fq_list = ['type:dataset']
-    fq_list.append(
-        f'extras_sources_res_formats:{utils.HUB_DATATYPE_MAP[filter_query.datatype]}')
+    fq_list.append(utils.resource_type_search_string(filter_query.datatype))
     if filter_query.sibling:
         fq_list.append(f'extras_collection:"{filter_query.sibling.upper()}"')
 
