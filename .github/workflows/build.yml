@@ -36,9 +36,9 @@ jobs:
             contents: read
 
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v7
 
-            - uses: 'google-github-actions/auth@v2'
+            - uses: google-github-actions/auth@v3
               id: googleauth
               with:
                   project_id: sdss-natcap-gef-ckan
@@ -47,7 +47,7 @@ jobs:
                   token_format: 'access_token'
 
             - name: Log in to Google Artifact Registry
-              uses: docker/login-action@v3
+              uses: docker/login-action@v4
               with:
                   registry: us-west1-docker.pkg.dev
                   username: 'oauth2accesstoken'
@@ -70,7 +70,7 @@ jobs:
 
             - name: Deploy to Cloud Run
               if : github.event_name == 'push' && github.ref == 'refs/heads/master'
-              uses: google-github-actions/deploy-cloudrun@v2
+              uses: google-github-actions/deploy-cloudrun@v3
               with:
                   service: dhal-api
                   image: ${{ env.REGISTRY_URL }}:${{ github.sha }}
