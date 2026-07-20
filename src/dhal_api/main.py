@@ -24,14 +24,14 @@ app = FastAPI(
 )
 
 # Production:
-#CKAN_API_URL = 'https://data.naturalcapitalalliance.stanford.edu'
-#PLACE_VOCAB_ID = '08e541f5-0f71-4931-bfc8-30bf66801146'
-#COLLECTION_VOCAB_ID = '94023b63-78d9-46fb-b688-154d0cd2a8ef'
+CKAN_API_URL = 'https://data.naturalcapitalalliance.stanford.edu'
+PLACE_VOCAB_ID = '08e541f5-0f71-4931-bfc8-30bf66801146'
+COLLECTION_VOCAB_ID = '94023b63-78d9-46fb-b688-154d0cd2a8ef'
 
 # Staging:
-CKAN_API_URL = 'https://data-staging.naturalcapitalproject.org'
-PLACE_VOCAB_ID = '10db4d07-a510-4838-ad1b-2adcf4a212f4'
-COLLECTION_VOCAB_ID = '758da202-4bab-46b0-ba53-569ef1a465c8'
+#CKAN_API_URL = 'https://data-staging.naturalcapitalproject.org'
+#PLACE_VOCAB_ID = '10db4d07-a510-4838-ad1b-2adcf4a212f4'
+#COLLECTION_VOCAB_ID = '758da202-4bab-46b0-ba53-569ef1a465c8'
 
 # Dev:
 #CKAN_API_URL = 'https://localhost:8443'
