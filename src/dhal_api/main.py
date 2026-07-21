@@ -16,11 +16,13 @@ from dhal_api.models import (
 
 
 LOGGER = logging.getLogger(__name__)
+ROOT_PATH = os.environ.get("API_ROOT_PATH", "")
 
 app = FastAPI(
     title="Natural Capital Alliance Data Hub Abstraction Layer",
     description="API for querying the NatCap Data Hub from InVEST.",
-    version="0.1.0"
+    version="0.1.0",
+    root_path=ROOT_PATH
 )
 
 # Production:
